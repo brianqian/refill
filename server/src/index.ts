@@ -5,11 +5,8 @@ const server = Fastify({
 });
 
 server.get('/ping', async (_request, _reply) => {
-  const temp = 'hello';
-  return temp;
+  return 'pong';
 });
-
-console.log('hllo');
 
 server.listen(8080, (err, address) => {
   if (err) {

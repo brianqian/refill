@@ -30,6 +30,7 @@
   },
   "rules": {
     "no-console": "off",
-    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }]
+    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "arrow-body-style": "off"
   }
 }
