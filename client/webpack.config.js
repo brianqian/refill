@@ -1,7 +1,7 @@
 const path = require('path');
-const webpack = require('webpack');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
@@ -35,11 +35,12 @@ module.exports = {
     filename: 'bundle.js',
   },
   plugins: [
+    new ESLintPlugin(),
     isDevelopment && new ReactRefreshWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'src', 'index.html'),
     }),
-  ],
+  ].filter(Boolean),
   devServer: {
     client: {
       logging: 'info',
