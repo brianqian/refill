@@ -3,6 +3,7 @@ lockfileVersion: 5.3
 specifiers:
   '@mikro-orm/core': ^4.5.9
   '@mikro-orm/postgresql': ^4.5.9
+  '@tsconfig/node14': ^1.0.1
   '@types/node': ^16.11.8
   '@typescript-eslint/eslint-plugin': ^5.4.0
   '@typescript-eslint/parser': ^5.4.0
@@ -34,6 +35,7 @@ dependencies:
   ts-node: 10.4.0
 
 devDependencies:
+  '@tsconfig/node14': 1.0.1
   '@types/node': 16.11.8
   '@typescript-eslint/eslint-plugin': 5.4.0_d6f2571581882eb2d6c9d9867e002185
   '@typescript-eslint/parser': 5.4.0_eslint@8.2.0+typescript@4.5.2
@@ -815,7 +817,6 @@ packages:
 
   /@tsconfig/node14/1.0.1:
     resolution: {integrity: sha512-509r2+yARFfHHE7T6Puu2jjkoycftovhXRqW328PDXTVGKihlb1P8Z9mMZH04ebyajfRY7dedfGynlrFHJUQCg==}
-    dev: false
 
   /@tsconfig/node16/1.0.2:
     resolution: {integrity: sha512-eZxlbI8GZscaGS7kkc/trHTT5xgrjH3/1n2JDwusC9iahPKWMRvRjJSAN5mCXviuTGQ/lHnhvv8Q1YTpnfz9gA==}
