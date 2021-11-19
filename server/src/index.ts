@@ -9,6 +9,8 @@ server.get('/ping', async (_request, _reply) => {
   return temp;
 });
 
+console.log('hllo');
+
 server.listen(8080, (err, address) => {
   if (err) {
     console.error(err);

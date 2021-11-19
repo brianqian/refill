@@ -7,7 +7,7 @@ const isDevelopment = process.env.NODE_ENV !== 'production';
 
 module.exports = {
   mode: isDevelopment ? 'development' : 'production',
-  entry: [path.resolve(__dirname, './src/index.tsx')],
+  entry: ['react-refresh/runtime', path.resolve(__dirname, './src/index.tsx')],
   devtool: 'inline-source-map',
   module: {
     rules: [
