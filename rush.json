@@ -380,11 +380,8 @@
    * 3. It's useful to have a centralized inventory of all projects and their important metadata.
    */
   "projects": [
-    {
-      "packageName": "client",
-      "projectFolder": "client"
-    },
-    { "packageName": "refill-server", "projectFolder": "server" }
+    { "packageName": "refill-a.server", "projectFolder": "server" },
+    { "packageName": "refill-client", "projectFolder": "client" }
 
     // {
     //   /**

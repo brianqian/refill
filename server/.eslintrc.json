@@ -31,6 +31,8 @@
   "rules": {
     "no-console": "off",
     "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
-    "arrow-body-style": "off"
+    "@typescript-eslint/indent": "off",
+    "arrow-body-style": "off",
+    "import/prefer-default-export": "off"
   }
 }
