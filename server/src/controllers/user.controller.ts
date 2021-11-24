@@ -1,5 +1,5 @@
 import { User } from '../entities/User.entity';
-import { Db, DbRepo } from '../types/common';
+import { Db, DbRepo } from '../@types';
 
 class UserController {
   public db: Db;

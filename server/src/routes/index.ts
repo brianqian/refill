@@ -2,7 +2,7 @@ import { FastifyPluginCallback } from 'fastify';
 import fp from 'fastify-plugin';
 import BaseController from '../controllers/base.controller';
 import UserController from '../controllers/user.controller';
-import { Db } from '../types/common';
+import { Db } from '../@types';
 import userRoutes from './user.routes';
 
 const routes: FastifyPluginCallback<Db> = async (fastify, db, done) => {

@@ -69,3 +69,4 @@ common/autoinstallers/*/.npmrc
 
 **/dist
 temp/
+.env**

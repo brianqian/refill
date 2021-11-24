@@ -5,11 +5,10 @@ import fastifyEnv from 'fastify-env';
 import middie from 'middie';
 import routes from './routes';
 import getOrmConfig from './config/db';
-import { RouteOptionsWithOrm } from './types/route';
-import { Db } from './types/common';
+import { Db } from './@types';
+import { fastifyEnvOptions } from './config/env';
 
 const PORT = process.env.PORT || 8080;
-// const DEV_MODE = process.env.NODE_ENV !== 'production';
 
 const app = Fastify({
   logger: {
@@ -22,6 +21,7 @@ const startServer = async () => {
   await app.register(middie);
   await app.register(cors);
   await app.register(sensible);
+  await app.register(fastifyEnv, fastifyEnvOptions);
 
   app.register((_req, _res, next) => {
     storage.run(orm.em.fork(true, true), next);

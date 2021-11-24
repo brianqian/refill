@@ -21,7 +21,6 @@ async function getOrmConfig() {
     entities: ['./dist/src/entities'],
     entitiesTs: ['./src/entities'],
     metadataProvider: TsMorphMetadataProvider,
-    dbName: 'my-db-name',
     type: 'postgresql',
     driver: PostgreSqlDriver,
   });

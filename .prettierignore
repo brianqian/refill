@@ -72,6 +72,8 @@ common/autoinstallers/*/.npmrc
 .heft
 
 **/dist
+temp/
+.env**
 
 #-------------------------------------------------------------------------------------------------------------------
 # Prettier-specific overrides

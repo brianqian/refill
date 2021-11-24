@@ -1,4 +1,4 @@
-import { Db } from '../types/common';
+import { Db } from '../@types';
 import UserController from './user.controller';
 
 class BaseController {

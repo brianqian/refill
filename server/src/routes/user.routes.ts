@@ -1,7 +1,7 @@
 import { FastifyPluginCallback } from 'fastify';
 import fp from 'fastify-plugin';
 import UserController from '../controllers/user.controller';
-import { GetUserParams } from '../types/route';
+import { GetUserParams } from '../@types';
 
 const userRoutes: FastifyPluginCallback<UserController> = (fastify, controller, done) => {
   fastify.get<GetUserParams>('/user/:id', async (req, res) => {
@@ -10,9 +10,9 @@ const userRoutes: FastifyPluginCallback<UserController> = (fastify, controller, 
     return user;
   });
   fastify.post('/user', async (req, res) => {
-    const user = await controller.createUser(req.body);
-    console.log(user);
-    return user;
+    // const user = await controller.createUser(req.body);
+    // console.log(user);
+    // return user;
   });
 
   done();
