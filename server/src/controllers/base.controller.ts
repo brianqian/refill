@@ -1,4 +1,5 @@
-import { Db } from '../@types';
+import { Db } from '../@types/common';
+import AuthController from './auth.controller';
 import UserController from './user.controller';
 
 class BaseController {
@@ -9,6 +10,7 @@ class BaseController {
   }
 
   public User = new UserController(this.db);
+  public Auth = new AuthController(this.db);
 }
 
 export default BaseController;

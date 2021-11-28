@@ -5,7 +5,7 @@ import fastifyEnv from 'fastify-env';
 import middie from 'middie';
 import routes from './routes';
 import getOrmConfig from './config/db';
-import { Db } from './@types';
+import { Db } from './@types/common';
 import { fastifyEnvOptions } from './config/env';
 
 const PORT = process.env.PORT || 8080;

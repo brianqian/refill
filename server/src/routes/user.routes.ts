@@ -1,18 +1,18 @@
 import { FastifyPluginCallback } from 'fastify';
 import fp from 'fastify-plugin';
-import { CreateUser, GetUser } from '../@types/routes';
+import { CreateUser, GetUser } from '../@types/routes/user';
 import UserController from '../controllers/user.controller';
 
 const userRoutes: FastifyPluginCallback<UserController> = (fastify, controller, done) => {
   fastify.get<GetUser>('/user/:id', async (req, _res) => {
     const user = await controller.getUserById(req.id);
     console.log(user);
-    return user;
+    return { user };
   });
 
   fastify.post<CreateUser>('/user', async (req, _res) => {
     const user = await controller.createUser(req.body);
-    return user;
+    return { user };
   });
 
   done();

@@ -19,6 +19,7 @@ specifiers:
   fastify-cors: ^6.0.2
   fastify-env: ^2.1.1
   fastify-helmet: ^5.3.2
+  fastify-jwt: ^4.0.0
   fastify-mikro-orm: ^2.1.0
   fastify-plugin: ^3.0.0
   fastify-sensible: ^3.1.2
@@ -40,6 +41,7 @@ dependencies:
   fastify-cors: 6.0.2
   fastify-env: 2.1.1
   fastify-helmet: 5.3.2
+  fastify-jwt: 4.0.0
   fastify-mikro-orm: 2.1.0_pg@8.7.1
   fastify-plugin: 3.0.0
   fastify-sensible: 3.1.2
@@ -661,6 +663,11 @@ packages:
       '@types/yargs': 16.0.4
       chalk: 4.1.2
     dev: true
+
+  /@lukeed/ms/2.0.0:
+    resolution: {integrity: sha512-NOlhE40rGptwLwJhE0ZW259hcoa+nkpQRQ1FUKV4Sr2z1Eh2WfkHQ3jjBNF7YEqOrF0TOpqnyU1wClvWBrXByg==}
+    engines: {node: '>=8'}
+    dev: false
 
   /@mapbox/node-pre-gyp/1.0.7:
     resolution: {integrity: sha512-PplSvl4pJ5N3BkVjAdDzpPhVUPdC73JgttkR+LnBx2OORC1GCQsBjUeEuipf9uOaAM1SbxcdZFfR3KDTKm2S0A==}
@@ -1575,6 +1582,15 @@ packages:
       es-abstract: 1.19.1
     dev: true
 
+  /asn1.js/5.4.1:
+    resolution: {integrity: sha512-+I//4cYPccV8LdmBLiX8CYvf9Sp3vQsrqu2QNXRcrbiWvcx/UdlFiqUJJzxRQxgsZmvhXhn4cSKeSmoFjVdupA==}
+    dependencies:
+      bn.js: 4.12.0
+      inherits: 2.0.4
+      minimalistic-assert: 1.0.1
+      safer-buffer: 2.1.2
+    dev: false
+
   /asn1/0.2.6:
     resolution: {integrity: sha512-ix/FxPn0MDjeyJ7i/yoHGFt/EX6LyNbxSEhPPXODPL+KB0VPk86UYfL0lMdy+KCnv+fmvIzySwaK5COwqVbWTQ==}
     dependencies:
@@ -1752,6 +1768,10 @@ packages:
       inherits: 2.0.4
     dev: false
     optional: true
+
+  /bn.js/4.12.0:
+    resolution: {integrity: sha512-c98Bf3tPniI+scsdk237ku1Dc3ujXQTSgyiPUDEOe7tRkhrqridvh8klBv0HCEso1OLOYcHuCv/cS6DNxKH+ZA==}
+    dev: false
 
   /boxen/5.1.2:
     resolution: {integrity: sha512-9gYgQKXx+1nP8mP7CzFyaUARhg7D3n1dF/FnErWmu9l6JvGpNUN278h0aSb+QjoiKSWG+iZ3uHrcqk0qrY9RQQ==}
@@ -2364,6 +2384,12 @@ packages:
     dev: false
     optional: true
 
+  /ecdsa-sig-formatter/1.0.11:
+    resolution: {integrity: sha512-nagl3RYrbNv6kQkeJIpt6NJZy8twLB/2vtz6yN9Z4vRKHN4/QZJIEbqohALSgwKdnksuY3k5Addp5lg8sVoVcQ==}
+    dependencies:
+      safe-buffer: 5.2.1
+    dev: false
+
   /electron-to-chromium/1.3.903:
     resolution: {integrity: sha512-+PnYAyniRRTkNq56cqYDLq9LyklZYk0hqoDy9GpcU11H5QjRmFZVDbxtgHUMK/YzdNTcn1XWP5gb+hFlSCr20g==}
     dev: true
@@ -2813,6 +2839,15 @@ packages:
       string-similarity: 4.0.4
     dev: false
 
+  /fast-jwt/1.3.2:
+    resolution: {integrity: sha512-iUQocVSrttQPp8Kqi1zBIczfusYptJnn7kqMTkfb7mTgqyZv9LiE1YmMuOvnAn0hvi5aHzzfk9RIGWfRz+/3Qw==}
+    engines: {node: '>= 10.12.0'}
+    dependencies:
+      asn1.js: 5.4.1
+      ecdsa-sig-formatter: 1.0.11
+      mnemonist: 0.38.5
+    dev: false
+
   /fast-levenshtein/2.0.6:
     resolution: {integrity: sha1-PYpcZog6FqMMqGQ+hR8Zuqd5eRc=}
     dev: true
@@ -2824,6 +2859,13 @@ packages:
 
   /fast-safe-stringify/2.1.1:
     resolution: {integrity: sha512-W+KJc2dmILlPplD/H4K9l9LcAHAfPtP6BY84uVLXQ6Evcz9Lcg33Y2z1IVblT6xdY54PXYVHEv+0Wpq8Io6zkA==}
+    dev: false
+
+  /fastfall/1.5.1:
+    resolution: {integrity: sha1-P+4DMxpJ0dObPN96XpzWb0dee5Q=}
+    engines: {node: '>=0.10.0'}
+    dependencies:
+      reusify: 1.0.4
     dev: false
 
   /fastify-cors/6.0.2:
@@ -2849,6 +2891,17 @@ packages:
     dependencies:
       fastify-plugin: 3.0.0
       helmet: 4.6.0
+    dev: false
+
+  /fastify-jwt/4.0.0:
+    resolution: {integrity: sha512-qaZMJjbGN+S+hZx8on6fsFMTkO33yKKJ0sXYXAMAqNdx8LYOQIsybospWrobPTHmSrDvSW7JvRSpT8oOwbdbxQ==}
+    engines: {node: '>=10'}
+    dependencies:
+      '@lukeed/ms': 2.0.0
+      fast-jwt: 1.3.2
+      fastify-plugin: 3.0.0
+      http-errors: 1.8.1
+      steed: 1.1.3
     dev: false
 
   /fastify-mikro-orm/2.1.0_pg@8.7.1:
@@ -2921,10 +2974,24 @@ packages:
       - supports-color
     dev: false
 
+  /fastparallel/2.4.1:
+    resolution: {integrity: sha512-qUmhxPgNHmvRjZKBFUNI0oZuuH9OlSIOXmJ98lhKPxMZZ7zS/Fi0wRHOihDSz0R1YiIOjxzOY4bq65YTcdBi2Q==}
+    dependencies:
+      reusify: 1.0.4
+      xtend: 4.0.2
+    dev: false
+
   /fastq/1.13.0:
     resolution: {integrity: sha512-YpkpUnK8od0o1hmeSc7UUs/eB/vIPWJYjKck2QKIzAf71Vm1AAQ3EbuZB3g2JIy+pg+ERD0vqI79KyZiB2e2Nw==}
     dependencies:
       reusify: 1.0.4
+
+  /fastseries/1.7.2:
+    resolution: {integrity: sha1-0izhO5Qz3/M4jZHb1ri9qbIaD0s=}
+    dependencies:
+      reusify: 1.0.4
+      xtend: 4.0.2
+    dev: false
 
   /fb-watchman/2.0.1:
     resolution: {integrity: sha512-DkPJKQeY6kKwmuMretBhr7G6Vodr7bFwDYTXIkfG1gjvNpaxBTQV3PbXg6bR1c1UP4jPOX0jHUbbHANL9vRjVg==}
@@ -4948,6 +5015,10 @@ packages:
     engines: {node: '>=4'}
     dev: false
 
+  /minimalistic-assert/1.0.1:
+    resolution: {integrity: sha512-UtJcAD4yEaGtjPezWuO9wC4nwUnVH/8/Im3yEHQP4b67cXlD/Qr9hdITCU1xDbSEXg2XKNaP8jsReV7vQd00/A==}
+    dev: false
+
   /minimatch/3.0.4:
     resolution: {integrity: sha512-yJHVQEhyqPLUTgt9B83PXu6W3rx4MvvHvSUvToogpwoGDOUQ+yDrR0HRot+yOCdCO7u4hX3pWft6kWBBcqh0UA==}
     dependencies:
@@ -5003,6 +5074,12 @@ packages:
     resolution: {integrity: sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==}
     engines: {node: '>=10'}
     hasBin: true
+    dev: false
+
+  /mnemonist/0.38.5:
+    resolution: {integrity: sha512-bZTFT5rrPKtPJxj8KSV0WkPyNxl72vQepqqVUAW2ARUpUSF2qXMB6jZj7hW5/k7C1rtpzqbD/IIbJwLXUjCHeg==}
+    dependencies:
+      obliterator: 2.0.1
     dev: false
 
   /moment-timezone/0.5.34:
@@ -5370,6 +5447,10 @@ packages:
       define-properties: 1.1.3
       es-abstract: 1.19.1
     dev: true
+
+  /obliterator/2.0.1:
+    resolution: {integrity: sha512-XnkiCrrBcIZQitJPAI36mrrpEUvatbte8hLcTcQwKA1v9NkCKasSi+UAguLsLDs/out7MoRzAlmz7VXvY6ph6w==}
+    dev: false
 
   /once/1.4.0:
     resolution: {integrity: sha1-WDsap3WWHUsROsF9nFC6753Xa9E=}
@@ -6347,6 +6428,16 @@ packages:
   /statuses/1.5.0:
     resolution: {integrity: sha1-Fhx9rBd2Wf2YEfQ3cfqZOBR4Yow=}
     engines: {node: '>= 0.6'}
+    dev: false
+
+  /steed/1.1.3:
+    resolution: {integrity: sha1-8VJd1a2xLrIb90dJU3Zo1iW5q8U=}
+    dependencies:
+      fastfall: 1.5.1
+      fastparallel: 2.4.1
+      fastq: 1.13.0
+      fastseries: 1.7.2
+      reusify: 1.0.4
     dev: false
 
   /string-length/4.0.2:
