@@ -1,7 +1,8 @@
-import { Entity, Property } from '@mikro-orm/core';
+import { Entity, Property, Unique } from '@mikro-orm/core';
 import { BaseEntity } from './Base.entity';
 
 @Entity()
+@Unique({ properties: ['email'] })
 export class User extends BaseEntity {
   @Property()
   public firstName: string;
@@ -12,7 +13,7 @@ export class User extends BaseEntity {
   @Property()
   public email: string;
 
-  @Property()
+  @Property({ hidden: true })
   public password: string;
 
   constructor(user: User) {

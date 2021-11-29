@@ -1,4 +1,4 @@
-export interface EnvironmentSchema {
+export interface EnvironmentVarSchema {
   PORT: string;
   MIKRO_ORM_TYPE: string;
   MIKRO_ORM_HOST: string;
@@ -6,7 +6,16 @@ export interface EnvironmentSchema {
   MIKRO_ORM_USER: string;
   MIKRO_ORM_PASSWORD: string;
   MIKRO_ORM_DB_NAME: string;
+  JWT_SECRET: string;
+  COOKIE_SECRET: string;
 }
+
+// interface ISchema  {
+//   type: 'object';
+//   required: keyof EnvironmentVarSchema[],
+//   properties:
+
+// }
 
 const schema = {
   type: 'object',
@@ -17,6 +26,8 @@ const schema = {
     'MIKRO_ORM_USER',
     'MIKRO_ORM_PASSWORD',
     'MIKRO_ORM_DB_NAME',
+    'JWT_SECRET',
+    'COOKIE_SECRET',
   ],
   properties: {
     PORT: {
@@ -40,6 +51,12 @@ const schema = {
       type: 'string',
     },
     MIKRO_ORM_DB_NAME: {
+      type: 'string',
+    },
+    JWT_SECRET: {
+      type: 'string',
+    },
+    COOKIE_SECRET: {
       type: 'string',
     },
   },

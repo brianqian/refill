@@ -12,7 +12,9 @@ class UserController {
   }
 
   async getUserById(id: string): Promise<User | null> {
-    return this.userRepo.findOne(id);
+    const user = await this.userRepo.findOne(id);
+    console.log(user?.password);
+    return user;
   }
 
   async createUser(user: User): Promise<User> {

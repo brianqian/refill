@@ -1,12 +1,19 @@
-import { FastifyPluginCallback } from 'fastify';
+import { FastifyInstance, FastifyPluginCallback } from 'fastify';
 import fp from 'fastify-plugin';
-import { Login } from '../@types/routes/auth';
-import AuthController from '../controllers/auth.controller';
+import { IAuthRoutes, Login } from '../@types/routes/auth';
 
-const authRoutes: FastifyPluginCallback<AuthController> = (fastify, controller, done) => {
-  fastify.get<Login>('/refresh', async (req, _res) => {
-    console.log(req);
-  });
+const authRoutes: FastifyPluginCallback<IAuthRoutes> = (fastify: FastifyInstance, opts, done) => {
+  const { prefix, controller } = opts;
+  fastify.get<Login>(
+    `${prefix}/refresh`,
+    { preValidation: [fastify.authenticate] },
+    async (req, res) => {
+      const { email, password } = req.body;
+      const [, match] = await fastify.to(controller.validatePassword(email, password));
+      if (!match) throw fastify.httpErrors.unauthorized('Invalid password');
+      res.code(200).send();
+    }
+  );
 
   done();
 };

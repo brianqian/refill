@@ -2,6 +2,7 @@ lockfileVersion: 5.3
 
 specifiers:
   '@mikro-orm/core': ^4.5.9
+  '@mikro-orm/migrations': ^4.5.9
   '@mikro-orm/postgresql': ^4.5.9
   '@mikro-orm/reflection': ^4.5.9
   '@tsconfig/node14': ^1.0.1
@@ -16,6 +17,7 @@ specifiers:
   eslint-import-resolver-typescript: ^2.5.0
   eslint-plugin-import: ^2.25.3
   fastify: ^3.24.0
+  fastify-cookie: ^5.4.0
   fastify-cors: ^6.0.2
   fastify-env: ^2.1.1
   fastify-helmet: ^5.3.2
@@ -28,16 +30,19 @@ specifiers:
   nodemon: ^2.0.15
   pg: ^8.7.1
   prettier: ^2.4.1
+  rimraf: ^3.0.2
   ts-node: ^10.4.0
   typescript: ^4.5.2
 
 dependencies:
   '@mikro-orm/core': 4.5.9_@mikro-orm+postgresql@4.5.9
+  '@mikro-orm/migrations': 4.5.9
   '@mikro-orm/postgresql': 4.5.9_@mikro-orm+core@4.5.9
   '@mikro-orm/reflection': 4.5.9_@mikro-orm+core@4.5.9
   argon2: 0.28.3
   dotenv: 10.0.0
   fastify: 3.24.0
+  fastify-cookie: 5.4.0
   fastify-cors: 6.0.2
   fastify-env: 2.1.1
   fastify-helmet: 5.3.2
@@ -62,6 +67,7 @@ devDependencies:
   eslint-plugin-import: 2.25.3_eslint@8.2.0
   jest: 27.3.1
   prettier: 2.4.1
+  rimraf: 3.0.2
   typescript: 4.5.2
 
 packages:
@@ -840,6 +846,42 @@ packages:
       - supports-color
     dev: false
 
+  /@mikro-orm/knex/4.5.9_@mikro-orm+migrations@4.5.9:
+    resolution: {integrity: sha512-6dVwTKV3LMsEWDdYu5AlBSS4/0BaqEXTgAu4Ryyl95r7G+Y717RXI3fE9snRNE3uJU44Pi0O3TuhFYhdCb9arw==}
+    engines: {node: '>= 10.13.0'}
+    peerDependencies:
+      '@mikro-orm/core': ^4.0.0
+      '@mikro-orm/entity-generator': ^4.0.0
+      '@mikro-orm/migrations': ^4.0.0
+      mssql: ^7.0.0
+      mysql: ^2.18.1
+      mysql2: ^2.1.0
+      pg: ^8.0.3
+      sqlite3: ^5.0.0
+    peerDependenciesMeta:
+      '@mikro-orm/entity-generator':
+        optional: true
+      '@mikro-orm/migrations':
+        optional: true
+      mssql:
+        optional: true
+      mysql:
+        optional: true
+      mysql2:
+        optional: true
+      pg:
+        optional: true
+      sqlite3:
+        optional: true
+    dependencies:
+      '@mikro-orm/migrations': 4.5.9
+      fs-extra: 9.1.0
+      knex: 0.21.19
+      sqlstring: 2.3.2
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
   /@mikro-orm/knex/4.5.9_c3b4f93d9faee65d3ae83ac8a4a9c7a2:
     resolution: {integrity: sha512-6dVwTKV3LMsEWDdYu5AlBSS4/0BaqEXTgAu4Ryyl95r7G+Y717RXI3fE9snRNE3uJU44Pi0O3TuhFYhdCb9arw==}
     engines: {node: '>= 10.13.0'}
@@ -932,6 +974,26 @@ packages:
       - mysql
       - mysql2
       - pg
+      - sqlite3
+      - supports-color
+    dev: false
+
+  /@mikro-orm/migrations/4.5.9:
+    resolution: {integrity: sha512-lOCPkhc4V+HzVtTfKUVqX5msdfxvmY9wvPTMbhdIJ0Wp4C78T/YrXy9FD9EUzrY4Sfu6QKgTG7A509GjPjhgoQ==}
+    engines: {node: '>= 10.13.0'}
+    peerDependencies:
+      '@mikro-orm/core': ^4.0.0
+    dependencies:
+      '@mikro-orm/knex': 4.5.9_@mikro-orm+migrations@4.5.9
+      '@types/umzug': 2.3.0
+      fs-extra: 9.1.0
+      knex: 0.21.19
+      umzug: 2.3.0
+    transitivePeerDependencies:
+      - '@mikro-orm/entity-generator'
+      - mssql
+      - mysql
+      - mysql2
       - sqlite3
       - supports-color
     dev: false
@@ -1175,11 +1237,21 @@ packages:
       '@babel/types': 7.16.0
     dev: true
 
+  /@types/bluebird/3.5.36:
+    resolution: {integrity: sha512-HBNx4lhkxN7bx6P0++W8E289foSu8kO8GCk2unhuVggO+cE7rh9DhZUyPhUxNRG9m+5B5BTKxZQ5ZP92x/mx9Q==}
+    dev: false
+
   /@types/bson/4.2.0:
     resolution: {integrity: sha512-ELCPqAdroMdcuxqwMgUpifQyRoTpyYCNr1V9xKyF40VsBobsj+BbWNRvwGchMgBPGqkw655ypkjj2MEF5ywVwg==}
     deprecated: This is a stub types definition. bson provides its own type definitions, so you do not need this installed.
     dependencies:
       bson: 4.5.4
+    dev: false
+
+  /@types/continuation-local-storage/3.2.3:
+    resolution: {integrity: sha512-4LYeWblV+6puK9tFGM7Zr4OLZkVXmaL7hUK6/wHwbfwM+q7v+HZyBWTXkNOiC9GqOxv7ehhi5TMCbebZWeVYtw==}
+    dependencies:
+      '@types/node': 16.11.8
     dev: false
 
   /@types/geojson/7946.0.8:
@@ -1216,6 +1288,10 @@ packages:
     resolution: {integrity: sha1-7ihweulOEdK4J7y+UnC86n8+ce4=}
     dev: true
 
+  /@types/lodash/4.14.177:
+    resolution: {integrity: sha512-0fDwydE2clKe9MNfvXHBHF9WEahRuj+msTuQqOmAApNORFvhMYZKNGGJdCzuhheVjMps/ti0Ak/iJPACMaevvw==}
+    dev: false
+
   /@types/mongodb/3.6.12:
     resolution: {integrity: sha512-49aEzQD5VdHPxyd5dRyQdqEveAg9LanwrH8RQipnMuulwzKmODXIZRp0umtxi1eBUfEusRkoy8AVOMr+kVuFog==}
     dependencies:
@@ -1234,9 +1310,29 @@ packages:
     resolution: {integrity: sha512-ekoj4qOQYp7CvjX8ZDBgN86w3MqQhLE1hczEJbEIjgFEumDy+na/4AJAbLXfgEWFNB2pKadM5rPFtuSGMWK7xA==}
     dev: true
 
+  /@types/sequelize/4.28.10:
+    resolution: {integrity: sha512-GKbEbl6uyEYTPvU2JZvmqZHfpwTTjaZvNSd2gFJrhcxUL1bcyG7i+S8Od2L0/+skrk2bBINl7J1Sugo0mgIY3g==}
+    dependencies:
+      '@types/bluebird': 3.5.36
+      '@types/continuation-local-storage': 3.2.3
+      '@types/lodash': 4.14.177
+      '@types/validator': 13.7.0
+    dev: false
+
   /@types/stack-utils/2.0.1:
     resolution: {integrity: sha512-Hl219/BT5fLAaz6NDkSuhzasy49dwQS/DSdu4MdggFB8zcXv7vflBI3xp7FEmkmdDkBUI2bPUNeMttp2knYdxw==}
     dev: true
+
+  /@types/umzug/2.3.0:
+    resolution: {integrity: sha512-DUwMKFa+QmApO7I5zhqpc12n9+Mqm006+PTPKrqoZ4F38rk2+iWl8K5IjVvWemERajtkfkiBkHtH/YkOPcBQjA==}
+    dependencies:
+      '@types/mongodb': 3.6.12
+      '@types/sequelize': 4.28.10
+    dev: false
+
+  /@types/validator/13.7.0:
+    resolution: {integrity: sha512-+jBxVvXVuggZOrm04NR8z+5+bgoW4VZyLzUO+hmPPW1mVFL/HaitLAkizfv4yg9TbG8lkfHWVMQ11yDqrVVCzA==}
+    dev: false
 
   /@types/yargs-parser/20.2.1:
     resolution: {integrity: sha512-7tFImggNeNBVMsn0vLrpn1H1uPrUBdnARPTpZoitY37ZrdJREzf7I16tMrlK3hen349gr1NYh8CmZQa7CTG6Aw==}
@@ -1769,6 +1865,10 @@ packages:
     dev: false
     optional: true
 
+  /bluebird/3.7.2:
+    resolution: {integrity: sha512-XpNj6GDQzdfW+r2Wnn7xiSAd7TM3jzkxGXBGTtWKuSXv1xUV+azxAm8jdWZN06QTQk+2N2XB9jRDkvbmQmcRtg==}
+    dev: false
+
   /bn.js/4.12.0:
     resolution: {integrity: sha512-c98Bf3tPniI+scsdk237ku1Dc3ujXQTSgyiPUDEOe7tRkhrqridvh8klBv0HCEso1OLOYcHuCv/cS6DNxKH+ZA==}
     dev: false
@@ -2111,6 +2211,11 @@ packages:
     dependencies:
       safe-buffer: 5.1.2
     dev: true
+
+  /cookie-signature/1.1.0:
+    resolution: {integrity: sha512-Alvs19Vgq07eunykd3Xy2jF0/qSNv2u7KDbAek9H5liV1UMijbqFs5cycZvv5dVsvseT/U4H8/7/w8Koh35C4A==}
+    engines: {node: '>=6.6.0'}
+    dev: false
 
   /cookie/0.4.1:
     resolution: {integrity: sha512-ZwrFkGJxUR3EIoXtO+yVE69Eb7KlixbaeAWfBQB9vVsNn/o+Yw69gBWSSDK825hQNdN+wF8zELf3dFNl/kxkUA==}
@@ -2866,6 +2971,13 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       reusify: 1.0.4
+    dev: false
+
+  /fastify-cookie/5.4.0:
+    resolution: {integrity: sha512-uKTbOLx6pSyKqA9oD2G9hpMuRTVtKRm98bRwJVg4ga7GCm+RR6771stmfhbblXxHHcQQHuHvwdOdPeHJjr2sgg==}
+    dependencies:
+      cookie-signature: 1.1.0
+      fastify-plugin: 3.0.0
     dev: false
 
   /fastify-cors/6.0.2:
@@ -4635,6 +4747,44 @@ packages:
     resolution: {integrity: sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==}
     engines: {node: '>=6'}
     dev: true
+
+  /knex/0.21.19:
+    resolution: {integrity: sha512-6etvrq9XI1Ck6mEc/XiXFGVpD1Lmj6v9XWojqZgEbOvyMbW7XRvgZ99yIhN/kaBH+43FEy3xv/AcbRaH+1pJtw==}
+    engines: {node: '>=10'}
+    hasBin: true
+    peerDependencies:
+      mssql: ^6.2.1
+      mysql: ^2.18.1
+      mysql2: ^2.1.0
+      pg: ^8.3.0
+      sqlite3: ^5.0.0
+    peerDependenciesMeta:
+      mssql:
+        optional: true
+      mysql:
+        optional: true
+      mysql2:
+        optional: true
+      pg:
+        optional: true
+      sqlite3:
+        optional: true
+    dependencies:
+      colorette: 1.2.1
+      commander: 6.2.1
+      debug: 4.3.1
+      esm: 3.2.25
+      getopts: 2.2.5
+      interpret: 2.2.0
+      liftoff: 3.1.0
+      lodash: 4.17.21
+      pg-connection-string: 2.4.0
+      tarn: 3.0.1
+      tildify: 2.0.0
+      v8flags: 3.2.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
 
   /knex/0.21.19_mysql2@2.2.5+pg@8.7.1:
     resolution: {integrity: sha512-6etvrq9XI1Ck6mEc/XiXFGVpD1Lmj6v9XWojqZgEbOvyMbW7XRvgZ99yIhN/kaBH+43FEy3xv/AcbRaH+1pJtw==}
@@ -6841,6 +6991,13 @@ packages:
     engines: {node: '>=4.2.0'}
     hasBin: true
     dev: true
+
+  /umzug/2.3.0:
+    resolution: {integrity: sha512-Z274K+e8goZK8QJxmbRPhl89HPO1K+ORFtm6rySPhFKfKc5GHhqdzD0SGhSWHkzoXasqJuItdhorSvY7/Cgflw==}
+    engines: {node: '>=6.0.0'}
+    dependencies:
+      bluebird: 3.7.2
+    dev: false
 
   /unbox-primitive/1.0.1:
     resolution: {integrity: sha512-tZU/3NqK3dA5gpE1KtyiJUrEB0lxnGkMFHptJ7q6ewdZ8s12QrODwNbhIJStmJkd1QDXa1NRA8aF2A1zk/Ypyw==}

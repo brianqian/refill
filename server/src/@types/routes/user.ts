@@ -1,5 +1,10 @@
+import UserController from '../../controllers/user.controller';
 import { User } from '../../entities/User.entity';
 
+export interface IUserRoutes {
+  controller: UserController;
+  prefix: string;
+}
 export interface GetUser {
   Params: {
     id: string;

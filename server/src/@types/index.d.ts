@@ -1,10 +1,11 @@
 import 'fastify';
 import { Db } from './common';
-import { EnvironmentSchema } from '../config/env';
+import { EnvironmentVarSchema } from '../config/env';
 
 declare module 'fastify' {
   interface FastifyInstance {
     db: Db;
-    config: EnvironmentSchema;
+    config: EnvironmentVarSchema;
+    authenticate: () => void;
   }
 }
